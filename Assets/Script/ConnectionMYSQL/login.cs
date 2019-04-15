@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class login : MonoBehaviour
+public class Login : MonoBehaviour
 {
     public InputField playerName;
     public InputField playerPass;
-
+    SceneMan sceneLoad;
     public Button submitButton;
-
+    private void Start()
+    {
+        sceneLoad = new SceneMan();
+    }
     public void CallLogin()
     {
-        StartCoroutine(Login());
+        StartCoroutine(Loginn());
     }
 
-    IEnumerator Login()
+    IEnumerator Loginn()
     {
         WWWForm form = new WWWForm();
         form.AddField("name", playerName.text);
@@ -27,6 +30,7 @@ public class login : MonoBehaviour
         if(www.text[0] == '0')
         {
             Debug.Log("Connected");
+            sceneLoad.CallSelectScene();
         }
         else
         {

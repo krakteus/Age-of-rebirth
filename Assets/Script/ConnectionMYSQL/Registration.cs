@@ -27,7 +27,7 @@ public class Registration : MonoBehaviour
 
         yield return www;
 
-        if(www.text !="0")
+        if(www.text =="0")
         {
             Debug.Log("Created succes. Welcome");
            
